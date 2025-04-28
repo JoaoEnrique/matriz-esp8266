@@ -1,3 +1,13 @@
+0 <br>
+<img width="300" src="https://github.com/user-attachments/assets/6b7fe647-58bd-4c95-bc3d-cc27022ec86f"/>
+
+1 <br>
+<img width="300" src="https://github.com/user-attachments/assets/c0515ec6-cfb1-431d-b80b-ec1e8a1853e4"/>
+
+2 <br>
+<img width="300" src="https://github.com/user-attachments/assets/49a85923-c606-427e-bf66-32aaa8faf92f"/>
+
+
 ```c++
 const int leds[] = {
   23, // led1 - fio azul1
