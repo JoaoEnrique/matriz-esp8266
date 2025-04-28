@@ -1,7 +1,3 @@
-// leds que ligam juntos
-//led1, led2, led3 - cima
-//led11, led12, led13 - baixo
-
 const int leds[] = {
   23, // led1 - fio azul1
   22, // led2 - fio verde1
@@ -18,6 +14,9 @@ const int leds[] = {
   33   // led13 - fio azul2
 };
 
+const int tempoDesligado = 500; //tempo entre cada número
+const int tempoLigado = 1000; //tempo que cada número fica ligado
+
 
 void setup() {
   for (int i = 0; i < sizeof(leds) / sizeof(leds[0]); i++) {
@@ -27,13 +26,25 @@ void setup() {
 
 void loop() {
     numeroZero();
-    delay(1000);
+    delay(tempoLigado);
+    desligarTudoComTempo();
     
     numeroUm();
-    delay(1000);
-
+    delay(tempoLigado);
+    desligarTudoComTempo();
+    
     numeroDois();
-    delay(1000);
+    delay(tempoLigado);
+    desligarTudoComTempo();
+ 
+    numeroTres();
+    delay(tempoLigado);
+    desligarTudoComTempo();
+    
+    numeroQuatro();
+    delay(tempoLigado);
+    desligarTudoComTempo();
+
 }
 
 void desligarTudo(){
@@ -41,6 +52,15 @@ void desligarTudo(){
     digitalWrite(leds[i], LOW);
   }
 }
+
+void desligarTudoComTempo(){
+  for (int i = 0; i < sizeof(leds) / sizeof(leds[0]); i++) {
+    digitalWrite(leds[i], LOW);
+  }
+
+  delay(tempoDesligado);
+}
+
 
 void ligarCima() {
   digitalWrite(leds[0], HIGH);
@@ -54,13 +74,13 @@ void ligarBaixo() {
   digitalWrite(leds[12], HIGH);
 }
 
-void ligarDireitaCima() {
+void ligarEsquerdaCima() {
   digitalWrite(leds[0], HIGH);
   digitalWrite(leds[3], HIGH);
   digitalWrite(leds[5], HIGH);
 }
 
-void ligarEsquerdaCima() {
+void ligarDireitaCima() {
   digitalWrite(leds[2], HIGH);
   digitalWrite(leds[4], HIGH);
   digitalWrite(leds[7], HIGH);
@@ -119,7 +139,24 @@ void numeroDois() {
   desligarTudo();
   ligarCima();
   ligarBaixo();
-  ligarEsquerdaCima();
+  ligarDireitaCima();
   ligarDireitaBaixo();
   ligarMeio();
+}
+
+
+void numeroTres() {
+  desligarTudo();
+  ligarCima();
+  ligarBaixo();
+  ligarDireita();
+  ligarMeio();
+}
+
+
+void numeroQuatro() {
+  desligarTudo();
+  ligarDireita();
+  ligarMeio();
+  ligarEsquerdaCima();
 }
